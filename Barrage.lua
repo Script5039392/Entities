@@ -95,6 +95,18 @@ end)
 
 entity:SetCallback("OnDespawned", function()
     print("Entity has despawned")
+		caa = 0
+tween = game:GetService("TweenService")
+local TestMultplayer = true
+if game:GetService("ReplicatedStorage"):FindFirstChild("Barrage") then
+    print("?")
+    return true
+end
+
+local Test = Instance.new("Part")
+Test.Name = "Barrage"
+Test.Parent = game:GetService("ReplicatedStorage")
+Test = 1
     function GitPNG(GithubImg, ImageName)
     local url = GithubImg
     if not isfile(ImageName .. ".png") then

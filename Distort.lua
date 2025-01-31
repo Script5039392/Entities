@@ -58,7 +58,7 @@ end
 CustomGitSound("https://github.com/Script5039392/Entities/blob/main/horror-ambience-01-66708.mp3?raw=true", 1, "DistortSound")
 
 task.spawn(function()
-while tp == true do wait(1)
+while tp == true do wait(1.5)
 game.Workspace.Distort.SFX.CFrame = chr.HumanoidRootPart.CFrame * CFrame.new(0, 0, 8)
 end
 end)
@@ -70,7 +70,7 @@ local function look()
 end
 
 task.spawn(function()
-while can == true do wait(0.01)
+while can == true do wait(0.08)
 if not look() then
 if not game.Players.LocalPlayer.Character:GetAttribute("Hiding") then
     game.Players.LocalPlayer.Character.Humanoid:TakeDamage(0.05)
@@ -80,13 +80,6 @@ end
 end
 end)
 
-task.spawn(function()
-while damage == true do wait(0.5)
-Distort.PrimaryPart.Touched:Connect(function()
-	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(5)
-end)
-end
-end)
 wait(math.random(3, 8))
 can = false
 tp = false

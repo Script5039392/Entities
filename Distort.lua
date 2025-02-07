@@ -46,8 +46,8 @@ function CustomGitSound(soundlink, vol, filename)
     local Ambience = Instance.new("Sound")
     Ambience.SoundId = GitAud(soundlink, filename)
     Ambience.Parent = workspace.Distort.SFX.SoundPart
-    Ambience.Volume = 0.95
-    Ambience.MaxDistance = 25
+    Ambience.Volume = 0.70
+    Ambience.MaxDistance = 50
     Ambience.Pitch = 0.95
     Ambience.PlaybackSpeed = 1.5
     Ambience.Looped = true
@@ -66,7 +66,7 @@ task.spawn(function()
 while can == true do wait(0.08)
 if not look() then
 if not game.Players.LocalPlayer.Character:GetAttribute("Hiding") then
-    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(0.05)
+    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(0.09)
     game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Distort"
 end
 end
@@ -75,7 +75,6 @@ end)
 
 wait(math.random(3, 8))
 can = false
-tp = false
 game.Workspace.Distort:Destroy()
 if game.Players.LocalPlayer.Character.Humanoid.Health >= 60 then
 

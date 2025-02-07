@@ -3,6 +3,7 @@ local chr = plr.Character or plr.CharacterAdded:Wait()
 local cam = workspace.CurrentCamera
 local TweenService = game:GetService("TweenService")
 local can = true
+local tp = true
 local Distort = game:GetObjects("rbxassetid://12672410595")[1]
 Distort.Parent = workspace
 local primary_part = Distort:FindFirstChildWhichIsA("BasePart") or Distort:FindFirstChildWhichIsA("Part")
@@ -56,6 +57,12 @@ end
 
 CustomGitSound("https://github.com/Script5039392/Entities/blob/main/horror-ambience-01-66708.mp3?raw=true", 1, "DistortSound")
 
+task.spawn(function()
+while tp == true do wait(1.8)
+game.Workspace.Distort.SFX:PivotTo(chr.HumanoidRootPart.CFrame * CFrame.new(0, 0, 8), 3)
+end
+end)
+
 local function look()
     local direction = (Distort.PrimaryPart.Position - cam.CFrame.Position).unit
     local dot_product = direction:Dot(cam.CFrame.LookVector)
@@ -73,8 +80,9 @@ end
 end
 end)
 
-wait(math.random(3, 8))
+wait(5)
 can = false
+tp = false
 game.Workspace.Distort:Destroy()
 if game.Players.LocalPlayer.Character.Humanoid.Health >= 60 then
 
